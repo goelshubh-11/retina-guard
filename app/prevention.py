@@ -146,18 +146,18 @@ def _build_recommendations(severity: str,
         base.append("Consider intravitreal anti-VEGF (e.g., Ranibizumab).")
         base.append("Pan-retinal photocoagulation assessment required.")
     elif severity == "Proliferative DR":
-        base.append("⚠️  IMMEDIATE ophthalmology referral.")
+        base.append("IMMEDIATE ophthalmology referral.")
         base.append("Vitreoretinal surgery evaluation if traction detachment.")
         base.append("Anti-VEGF injection and/or pan-retinal photocoagulation.")
 
     if risk == "High":
         base.append(
-            "🔴 Prevention Alert: lesion spread increased by > 10 % since last scan. "
+            "Prevention Alert: lesion spread increased by > 10 % since last scan. "
             "High risk of vision loss within 6 months without intervention."
         )
     elif risk == "Moderate":
         base.append(
-            "🟡 Moderate progression detected. "
+            "Moderate progression detected. "
             "Strengthen systemic risk-factor management."
         )
 

@@ -64,7 +64,7 @@ SEVERITY_ADVICE = {
         "High risk of progression to proliferative stage."
     ),
     "Proliferative DR": (
-        "⚠️  Proliferative diabetic retinopathy — sight-threatening. "
+        "Proliferative diabetic retinopathy — sight-threatening. "
         "Immediate ophthalmology referral. "
         "Laser photocoagulation or anti-VEGF treatment required."
     ),
@@ -121,6 +121,12 @@ def get_inference_transform() -> T.Compose:
         T.ToTensor(),
         T.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
     ])
+
+
+def rgb_to_tensor(rgb) -> torch.Tensor:
+    """HxWx3 uint8 array -> normalised (1, 3, H, W) tensor on DEVICE."""
+    from PIL import Image
+    return get_inference_transform()(Image.fromarray(rgb)).unsqueeze(0).to(DEVICE)
 
 
 # ─────────────────────────────────────────────
