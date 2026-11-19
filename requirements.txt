@@ -5,10 +5,7 @@ grad-cam
 opencv-python-headless
 Pillow
 numpy
-matplotlib
-scipy
-scikit-learn
 pandas
-seaborn
-tqdm
+scikit-learn
+matplotlib
 pytest
