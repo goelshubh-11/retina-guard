@@ -145,7 +145,7 @@ python -m streamlit run app/main.py
 
 Then open http://localhost:8501.
 
-Model weights are **not included** in this repository. Without them the dashboard runs a baseline model (ImageNet backbone with an untrained classification head) and shows a notice, and its predictions are not meaningful. To get real predictions, either train a checkpoint (see below) or upload an existing one under **Model weights** in the sidebar. A `.pth` file containing either a plain state dict or a `{"model_state_dict": ...}` checkpoint is accepted. Checkpoints can be shared through GitHub Releases rather than committed to the repository.
+**Pretrained weights:** download `retina_b3_clean.pth` from the [v1.0 release](https://github.com/goelshubh-11/retina-guard/releases/tag/v1.0), then upload it under **Model weights** in the sidebar. It reaches a quadratic weighted kappa of 0.886 on the validation split (see [Results](#results)).
 
 **Single scan:** upload a fundus image to see the predicted grade, confidence, Grad-CAM overlay, class probabilities, recommendations and a downloadable report.
 
@@ -170,6 +170,7 @@ python train.py --data /path/to/aptos --epochs 8 --workers 4 --out retina_b3.pth
 | Loss | Cross-entropy with square-root inverse-frequency class weights |
 | Augmentation | Horizontal and vertical flips, rotation up to 30 degrees, brightness and contrast jitter |
 | Precision | Mixed precision on CUDA |
+| Epochs | 8 (reported checkpoint) |
 | Split | 80/20 stratified, seed 42 |
 | Model selection | Best validation quadratic weighted kappa |
 
